@@ -25,7 +25,7 @@ var chartGroup = svg.append("g")
 
 // Initial Params
 var chosenXAxis = "poverty";
-var chosenYAxis = "healthcare";
+//var chosenYAxis = "healthcare";
 
 
 // ============ X-Axis ============
@@ -52,29 +52,29 @@ function renderXAxis(newXScale, xAxis) {
   return xAxis;
 }
 
-// ============ Y-Axis ============
-// function used for updating y-scale var upon click on axis label
-function yScale(CSVdata, chosenYAxis) {
-  // create scales
-  var yLinearScale = d3.scaleLinear()
-    .domain([d3.min(CSVdata, d => d[chosenYAxis]) * 0.8,
-      d3.max(CSVdata, d => d[chosenYAxis]) * 1.2
-    ])
-    .range([0, width]);
+// // ============ Y-Axis ============
+// // function used for updating y-scale var upon click on axis label
+// function yScale(CSVdata, chosenYAxis) {
+//   // create scales
+//   var yLinearScale = d3.scaleLinear()
+//     .domain([d3.min(CSVdata, d => d[chosenYAxis]) * 0.8,
+//       d3.max(CSVdata, d => d[chosenYAxis]) * 1.2
+//     ])
+//     .range([0, width]);
 
-  return yLinearScale;
-}
+//   return yLinearScale;
+// }
 
-// function used for updating yAxis var upon click on axis label
-function renderYAxis(newYScale, yAxis) {
-  var bottomAxis = d3.axisBottom(newYScale);
+// // function used for updating yAxis var upon click on axis label
+// function renderYAxis(newYScale, yAxis) {
+//   var bottomAxis = d3.axisBottom(newYScale);
 
-  yAxis.transition()
-    .duration(1000)
-    .call(bottomAxis);
+//   yAxis.transition()
+//     .duration(1000)
+//     .call(bottomAxis);
 
-  return yAxis;
-}
+//   return yAxis;
+// }
 
 // function used for updating circles group with a transition to
 // new circles
@@ -97,7 +97,7 @@ function updateToolTip(chosenXAxis, circlesGroup) {
     var label = "income:";
   }
 
-  if (chosenYAxis === "")
+  //if (chosenYAxis === "")
 
   var toolTip = d3.tip()
     .attr("class", "tooltip")
@@ -136,7 +136,7 @@ d3.csv("Resources/Data.csv").then(function(CSVdata, err) {
 
   // xLinearScale function above csv import
   var xLinearScale = xScale(CSVdata, chosenXAxis);
-  var yLinearScale = yScale(CSVdata, chosenYAxis);
+  //var yLinearScale = yScale(CSVdata, chosenYAxis);
 
 
   // Create y scale function
