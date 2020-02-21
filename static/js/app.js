@@ -212,7 +212,7 @@ d3.csv("Resources/Data.csv").then(function(CSVdata, err) {
   var circleTextGroup = tmp
     .append("text")
     .attr("x", d => xLinearScale(d[chosenXAxis]))
-    .attr("y", d => yLinearScale((d[chosenYAxis]) - .5))
+    .attr("y", d => yLinearScale((d[chosenYAxis]) - .15))
     .attr("text-anchor", "middle")
     .text((d) => d.abbr)
     .attr("font-family", "sans-serif")
